@@ -1,0 +1,18 @@
+
+<html>
+    <script>
+        function tocombineName(){
+            const firstName = document.getElementById("firstName").value;
+            const secondName = document.getElementById("secondName").value;
+            const element = document.getElementById("finalName");
+            element.innerHTML = "Hey there this is " + firstName + " "+secondName;
+        }
+    </script>
+
+    <body>
+        <input id="firstName" type="text" placeholder="First Name"> <br></br>
+        <input id="secondName" type="text" placeholder="Last Name"> <br></br>
+        <button onclick="tocombineName()">Enter</button>
+        <div id="finalName"></div>
+    </body>
+</html>

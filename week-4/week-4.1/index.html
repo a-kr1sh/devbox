@@ -1,0 +1,32 @@
+
+<html>
+    <script>
+        let timeout;
+        function debouncePopulateDiv(){
+            clearTimeout(timeout);
+            timeout = setTimeout(function(){
+                populateDiv()
+            }, 1000)
+        }
+
+        function populateDiv(){
+            const a = document.getElementById("firstNumber").value;
+            const b = document.getElementById("secondNumber").value;
+            //fetch
+            fetch("https://sum-server.100xdevs/sum?a=" + a + "&b=" + b)
+                .then(function(response){
+                    response.text()
+                        .then(function(ans){
+                            document.getElementById("finalSum").innerHTML = ans
+                        })
+                })
+        }   
+    </script>
+
+    <body>
+        <input oninput="debouncePopulateDiv()" id="firstNumber" type="text" placeholder="first number"><br><br/>
+        <input  oninput="debouncePopulateDiv()" id="secondNumber" type="text" placeholder="second number"><br><br/>
+        <button onclick="">Click here</button>
+        <div id="finalSum"></div>
+    </body>
+</html>
